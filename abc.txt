@@ -1,0 +1,313 @@
+package com.new_practice.programs;
+
+import java.util.Scanner;
+
+public class AbsoluteDifferenceOfDiagonals {
+
+	public static void main(String[] args) {
+		
+		System.out.print("Enter number of rows");
+		Scanner in = new Scanner(System.in);
+		int size = in.nextInt();
+		
+		int data[][] = new int[size][size];
+		
+		for(int i = 0 ; i < size ; i++){
+			
+			for(int j = 0 ; j < size ; j++){
+				
+				System.out.print("Enter i :" + i + " j :" + j);
+				data[i][j] = in.nextInt();
+				
+			}
+			
+		}
+		
+		System.out.print(getAbsoluteDifferenceOfDiagonals(data , size));
+				
+	}
+	
+	static int getAbsoluteDifferenceOfDiagonals(int data[][] , int size){
+		
+		
+		int i = 0 , j = 0 , k = size - 1;
+		
+		int firstDiagonalSum = 0;
+		int secondDiagonalSum = 0;
+		
+		while(i < size) {
+			
+			firstDiagonalSum = firstDiagonalSum + data[i][j];
+			secondDiagonalSum = secondDiagonalSum + data[i][k];
+			
+			++i;
+			++j;
+			
+			--k;
+			
+		}
+		
+		return Math.abs(firstDiagonalSum - secondDiagonalSum);
+				
+	}
+	
+	
+	
+	
+
+}
+========
+com.new_practice.programs;
+
+public class FirstDiagonalThread extends Thread {
+
+	int data[][];
+	volatile int totalSum1 = 0;
+
+	FirstDiagonalThread(int data[][]) {
+
+		this.data = data;
+
+	}
+
+	public void run() {
+
+		int i = 0, j = 0;
+		int sum = 0;
+
+		while (i < data.length) {
+
+			sum = sum + data[i][j];
+
+			++i;
+			++j;
+
+		}
+		
+		totalSum1 = sum;
+
+	}
+=================
+package com.new_practice.programs;
+
+public class GetAbsoluteDifference {
+
+	public static void main(String[] args) {
+
+		int data[][] = { { 1, 1 }, { 1, 1 } };
+		
+		FirstDiagonalThread firstDiagonalThread = new FirstDiagonalThread(data);
+		SecondDiagonalSum secondDiagonalSum = new SecondDiagonalSum(data);
+		
+		firstDiagonalThread.start();
+		
+		try {
+			
+			firstDiagonalThread.join();
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		secondDiagonalSum.start();
+		
+		try {
+			
+			secondDiagonalSum.join();
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+			
+		}
+
+		int diff = Math.abs(firstDiagonalThread.totalSum1 - secondDiagonalSum.totalSum2);
+		
+		System.out.print("Difference :- " + diff);
+		
+	}
+
+}
+============================
+package com.new_practice.programs;
+
+public class SecondDiagonalSum extends Thread {
+	
+	int data[][];
+	volatile int totalSum2 = 0;
+	
+	SecondDiagonalSum(int data[][]) {
+		
+		
+		this.data = data;
+		
+	}
+	
+	public void run(){
+		
+		int i = 0 ,  j = data[0].length - 1;
+		int sum = 0;
+		
+		while(i < data.length) {
+			
+			sum = sum + data[i][j];
+			
+			++i;
+			--j;
+			
+		}
+		
+		totalSum2 = sum;
+		
+	}
+
+}
+==============
+xml parsers
+========
+Different Parsing technologies SAX and DOM parser
+What is mean by well formed XML
+Difference between SAX and DOM parser
+When we will use SAX parser
+When we will use DOM parser
+  https://docs.spring.io/spring-security/site/docs/5.2.1.RELEASE/reference/htmlsingle/#saml2
+https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
+https://www.cloudamqp.com/blog/2020-04-03-why-use-rabbitmq-in-a-microservice-architecture.html
+https://www.cloudamqp.com/blog/2019-12-12-when-to-use-rabbitmq-or-apache-kafka.html
+
+Current Location: Bengaluru
+Current Company: Sutherland global Services
+Total Experience: 8.8 years
+Current CTC: 17.5 LPA
+Expected CTC: 30 % hike(negotiable
+Notice Period: 15 days
+
+https://www.youtube.com/watch?v=ADHcBxEXvFA
+https://www.youtube.com/watch?v=vHQqQBYJtLI
+
+https://www.youtube.com/watch?v=tuJqH3AV0e8
+
+
+// write a function that takes a list of positive integers and returns the integer that occurred MOST
+// if no one element occurs more than anything else, return -1
+//
+// Examples:
+// given [1,2,3,4] returns -1
+// given [4,1,2,3,4] returns 4
+// given [1,2,3,4,1,2,3,4,4] returns 4
+// given [5,5,5,5,3,3,3] returns 5
+
+
+npm install -g @angluar/cli
+npm install @angular/cli
+npm install @angular/cli8.9
+You4:27 PM
+import {NGModule] from 'angular/core'
+M
+import {NGModule} from '@angular/core'
+
+Base URL: https://dev.chadis.com/cachultz-chadis-api
+Site Id : OP-dev
+HMAC Key: 
+b9ad964bda21e58992aee35ac4d85de3d2972dfaef17b0c23bc8le8d234386364173a2691alfdb42e8la1513571b936915ae00f8b8630319db95be9c84d0165
+generated
+a61c308340b245134e21e6c445f41309c408026a2cb3069063693501f008c510
+http://jwtbuilder.jamiekurtz.com
+https://jwt.io
+===============
+https://www.baeldung.com/java-reactive-systems
+https://www.baeldung.com/spring-cloud-kubernetes
+
+https://www.devglan.com/spring-cloud/spring-cloud-feign-example
+http://javaonfly.blogspot.com/2017/07/microservices-communication-service-to.html
+
+https://aws.amazon.com/getting-started/
+https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2
+https://docs.aws.amazon.com/sdk-for-java/?id=docs_gateway
+https://docs.aws.amazon.com/AmazonS3/latest/gsg/DeletingAnObjectandBucket.html
+
+
+“Design All REST Endpoint for Food Delivery App from Delivery Executive Side, List down all endpoint which will be required from Delivery Executive side with proper name. 
+
+Implement All Endpoint using Spring Boot by Mocking Database and Follow TDD Approach to Test the Application”.
+
+-------------
+https://www.javacodegeeks.com/2015/06/java-programming-tips-best-practices-beginners.html
+https://www.geeksforgeeks.org/java-operators-question-1/
+https://javaconceptoftheday.com/tricky-core-java-interview-coding-questions/
+https://www.google.com/search?client=opera&q=java+trick+programming+in+java&sourceid=opera&ie=UTF-8&oe=UTF-8
+https://spring.io/projects/spring-cloud-security#samples
+
+https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java
+https://www.youtube.com/watch?v=Tbf7F42tcBw
+https://www.youtube.com/watch?v=LJkkFx7zJJQ
+https://www.youtube.com/watch?v=YB_qanudIzA
+https://www.youtube.com/watch?v=1ey-O8Y5YJE
+https://www.youtube.com/watch?v=97q30JjEq9Y
+
+https://www.netsurfingzone.com/aws/spring-boot-aws-sqs-listener-example/
+===============================================================	
+https://wf5.myhcl.com/InductionPortal/Interfaces/Login.aspx
+Login Id: bondilikr@gmail.com
+Password: C39F34DB
+
+https://wf5.myhcl.com/inductionportal/interfaces/DownloadPIF.aspx
+
+
+20/08/1993	20/05/1998	Diploma -Technical	Polytechnic Diploma	Electronics/Telecommunication	DEPARTMENTOFTECHNICALEDUCATION	PEAPOLYTECHNIC	MOLAKALMURU	India	BOARDOFTECHNICALEDUCTION,GOVERNAMENTOFKARNATAKA	MOLAKALMURU,CHITRADURGA DISTRICT	104796-6	55%	Full	Edit	Delete
+31/10/2000	30/04/2004	Bachelor(EU)	University Degree(EU)	B.E	JNTU	JBIET	YENKAPALLY, HYDERABAD	India	JNTU,KUKATPALLY,HYDERABAD	YENKAPALLY, MOINABAD,HYDERABAD	00671A1214	55%	Full	Edit	Delete
+
+https://www.youtube.com/watch?v=_fEkGmLEdGI
+
+garikapati03@gmail.com
+https://forms.microsoft.com/Pages/ResponsePage.aspx?id=N-edGDrJWk-LaG9MqZQZEj6sQZ9k5JtImkGDGRUiVBhUOTRYNEMwSUhGTUlDMzBIOEwxOEMwUDVHMC4u
+
+krishnasingh.bondili@hcl.com
+Hcltech@123
+manira 09611711152
+
+https://wf4.myhcl.com/iTime/iTime/index.html?v=32#/TimeSheet
+
+https://xsm-hclgit-prod.au-syd.mybluemix.net/myOrders laptop
+
+Life is like riding a bicycle you don’t fall off unless stop peddling
+https://www.office.com/launch/word?auth=2
+
+https://outlook.office.com/mail/inbox/id/AAQkADI0MzgxNjc0LTk5MWYtNDZlMi04ZjBlLWE3NTAzODhmNzQzOQAQALGJnzwkWVxAlaph2u6ZX0w%3D
+
+https://www.trycatchfail.com/2013/09/19/git-tips-tricks-part-7-move-commits-between-branches-with-cherry-pick/
+
+My HCL->HR Studio -> Learn -> iSuccess Learning  -> Go to ‘Find Learning’ -> Search by Course name/ID
+
+https://wf6.myhcl.com/EmpBenefitDashboardAPI/#/Dashboard
+=================
+team
+Malli Murali
+Mandava mahesh
+shawahaz khan
+sidramesh mudhol
+Pranithkumar manchik(code reviewer)
+ravikumarkeerhika peddolla
+manikanta Donthu
+bhagashree narayan
+======================
+Hi Team,
+
+My Mobile no: +91-6303672585
+ISD Number: 0033157225555 
+Passcode : 33039253  
+Corp Key is - YF94NC
+ can you please  reset passwords for  outlook (corpkey) and windows (i.e.. Windows applications)
+
+Best Regards,
+Krishna Singh. B
++91-6303672585
+
+Offshore: Setup Group VDI
+it helpdesk : itsd@hcl.com
+https://access.ing.net/logon/LogonPoint/tmindex.html
+citrix : https://www.citrix.com/downloads/citrix-receiver/windows/receiver-for-windows-latest.html
+HDX RealTime Media Engine for Microsoft Skype® for Business - Citrix:
+https://www.citrix.com/downloads/citrix-receiver/additional-client-software/hdx-realtime-media-engine.html
